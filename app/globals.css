@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base Colors */
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 221.2 83.2% 53.3%;
+    /* Blue-ish */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
+    --radius: 0.75rem;
+
+    /* Liquid Glass Tokens - Light */
+    --bg-surface: rgba(255, 255, 255, 0.7);
+    --bg-subtle: rgba(255, 255, 255, 0.4);
+    --bg-elevated: rgba(255, 255, 255, 0.9);
+
+    --glass-tint: rgba(255, 255, 255, 0.6);
+    --glass-frost: rgba(255, 255, 255, 0.4);
+
+    --text-primary: #1a1a1a;
+    --text-secondary: #666666;
+
+    --shadow-soft: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    --shadow-deep: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+
+    --blur-sm: 4px;
+    --blur-md: 8px;
+    --blur-lg: 16px;
+
+    --border-default: rgba(255, 255, 255, 0.18);
+    --border-focus: rgba(59, 130, 246, 0.5);
+
+    --radius-sm: 0.375rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1.5rem;
+
+    --opacity-glass-1: 0.7;
+    --opacity-glass-2: 0.4;
+
+    --motion-duration-fast: 0.2s;
+    --motion-duration-default: 0.4s;
+    --motion-easing: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    /* Liquid Glass Tokens - Dark */
+    --bg-surface: rgba(30, 41, 59, 0.7);
+    --bg-subtle: rgba(30, 41, 59, 0.4);
+    --bg-elevated: rgba(30, 41, 59, 0.9);
+
+    --glass-tint: rgba(15, 23, 42, 0.6);
+    --glass-frost: rgba(255, 255, 255, 0.1);
+
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+
+    --shadow-soft: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    --shadow-deep: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+
+    --border-default: rgba(255, 255, 255, 0.1);
+    --border-focus: rgba(96, 165, 250, 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-image:
+      radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+      radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  .dark body {
+    background-image:
+      radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+      radial-gradient(at 50% 0%, hsla(225, 39%, 20%, 1) 0, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(339, 49%, 20%, 1) 0, transparent 50%);
+  }
+}
+
+/* Scroll smoothing */
+html {
+  scroll-behavior: smooth;
+}
