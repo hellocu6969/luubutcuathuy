@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import dc from "@/lib/DataConfig";
-import { Send } from "lucide-react";
+import { Send, CheckCircle2 } from "lucide-react";
 
 const Submit = ({
   setShowLetter,
@@ -117,7 +117,10 @@ const Submit = ({
     <div className="w-full">
       <Card>
         <CardHeader>
-          <CardTitle className="text-xl font-bold">{dc.submit.title}</CardTitle>
+          <CardTitle className="text-xl font-bold flex items-center gap-2">
+            <CheckCircle2 className="w-5 h-5" />
+            {dc.submit.title}
+          </CardTitle>
           <CardDescription>{dc.submit.subheader}</CardDescription>
         </CardHeader>
         <div className="relative w-full h-64 overflow-hidden">

@@ -9,31 +9,32 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import dc from "@/lib/DataConfig";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, BookOpen } from "lucide-react";
 
 const HeadCard = ({ show, setShow, available, setShowLetter, showLetter }) => {
   return (
-    <div className="headCard-container w-full mb-8 animate-accordion-down">
-      <Card className="overflow-hidden">
-        <div className="relative w-full h-64">
+    <div className="headCard-container w-full mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+      <Card className="overflow-hidden border-none shadow-xl ring-1 ring-black/5">
+        <div className="relative w-full h-64 group">
           <img
             src={dc.headCard.image}
             alt="Letter image"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-black/40 flex items-end p-6">
-            <p className="text-white font-medium">Lưu bút online</p>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-6">
+            <p className="text-white/90 font-medium tracking-wide">Lưu bút online</p>
           </div>
         </div>
         
-        <CardHeader>
+        <CardHeader className="space-y-4">
           <div className="flex items-center justify-between">
-            <div>
-              <CardTitle className="text-2xl font-bold">
-                {dc.headCard.title + " " + dc.myself}
+            <div className="space-y-1">
+              <CardTitle className="text-2xl font-bold flex items-center gap-2">
+                <BookOpen className="w-6 h-6" />
+                {dc.headCard.title}
               </CardTitle>
-              <CardDescription className="flex items-center gap-1 mt-1 cursor-pointer hover:underline" onClick={() => window.open("https://www.facebook.com/yun.khngn/", "_blank")}>
-                <ExternalLink className="w-3 h-3" />
+              <CardDescription className="flex items-center gap-1.5 cursor-pointer hover:text-primary transition-colors" onClick={() => window.open("https://www.facebook.com/yun.khngn/", "_blank")}>
+                <ExternalLink className="w-3.5 h-3.5" />
                 Made by {dc.myself}
               </CardDescription>
             </div>

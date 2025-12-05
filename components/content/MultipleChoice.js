@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
 import dc from "@/lib/DataConfig";
+import { Star } from "lucide-react";
 
 const MultipleChoice = ({ setData, data, available }) => {
   if (!available || !data.name) return null;
@@ -20,10 +21,13 @@ const MultipleChoice = ({ setData, data, available }) => {
   ];
 
   return (
-    <div className="w-full">
+    <div className="w-full animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
       <Card>
         <CardHeader>
-          <CardTitle className="text-xl font-bold">{dc.handsome.title}</CardTitle>
+          <CardTitle className="text-xl font-bold flex items-center gap-2">
+            <Star className="w-5 h-5" />
+            {dc.handsome.title}
+          </CardTitle>
           <CardDescription>{dc.handsome.subtitle}</CardDescription>
         </CardHeader>
         <CardContent>

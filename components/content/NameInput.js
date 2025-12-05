@@ -6,17 +6,19 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import dc from "@/lib/DataConfig";
+import { User } from "lucide-react";
 
 const NameInput = ({ show, data, setData }) => {
   if (!show) return null;
 
   return (
-    <div className="w-full">
+    <div className="w-full animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
       <Card>
         <CardHeader>
-          <CardTitle className="text-xl font-bold">{dc.nameInput.title}</CardTitle>
+          <CardTitle className="text-xl font-bold flex items-center gap-2">
+            <User className="w-5 h-5" />
+            {dc.nameInput.title}
+          </CardTitle>
           <CardDescription>{dc.nameInput.subtitle}</CardDescription>
         </CardHeader>
         <CardContent>
