@@ -90,6 +90,7 @@ const RichEditor = ({ content, onChange, placeholder = "Write your story..." }) 
         onUpdate: ({ editor }) => {
             onChange(editor.getHTML());
         },
+        immediatelyRender: false,
     });
 
     // Update content if changed externally (e.g. reset)
