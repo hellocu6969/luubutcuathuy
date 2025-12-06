@@ -50,7 +50,7 @@ export default function WritePage() {
         <div className="text-center">
             <input
                 type="text"
-                placeholder="Blog Title"
+                placeholder={dc.writePage.titlePlaceholder}
                 className="w-full bg-transparent text-5xl md:text-7xl font-serif font-bold text-center placeholder:text-muted-foreground/50 focus:outline-none focus:placeholder:text-muted-foreground/30"
                 value={data.title}
                 onChange={(e) => setData({ ...data, title: e.target.value })}
@@ -67,14 +67,14 @@ export default function WritePage() {
             <div className="text-center space-y-1">
                 <input
                     type="text"
-                    placeholder="Your Name"
+                    placeholder={dc.writePage.namePlaceholder}
                     className="block w-full bg-transparent text-center font-medium text-foreground placeholder:text-muted-foreground focus:outline-none"
                     value={data.name}
                     onChange={(e) => setData({ ...data, name: e.target.value })}
                 />
                 <input
                     type="text"
-                    placeholder="Role (e.g. Developer)"
+                    placeholder={dc.writePage.rolePlaceholder}
                     className="block w-full bg-transparent text-center text-sm text-muted-foreground placeholder:text-muted-foreground/70 focus:outline-none"
                     value={data.role}
                     onChange={(e) => setData({ ...data, role: e.target.value })}
@@ -87,7 +87,7 @@ export default function WritePage() {
             <RichEditor 
                 content={data.message} 
                 onChange={handleContentChange}
-                placeholder="Start writing your thoughts..."
+                placeholder={dc.writePage.editorPlaceholder}
             />
         </div>
 
