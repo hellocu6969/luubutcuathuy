@@ -61,7 +61,7 @@ export default function WritePage() {
         
         {/* Date Header */}
         <div className="text-center">
-            <p className="text-muted-foreground uppercase tracking-widest text-xs font-medium">{today}</p>
+            <p className="text-muted-foreground uppercase tracking-widest text-xs font-medium">{dc.writePage.dateLabel}: {today}</p>
         </div>
 
         {/* Title Input */}

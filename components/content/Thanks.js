@@ -26,19 +26,19 @@ const Thanks = ({ show, data, available }) => {
             <div className="flex gap-4 animate-in slide-in-from-bottom-6 duration-1000 delay-700">
                 <Button 
                     variant="outline" 
-                    onClick={() => window.open("https://www.facebook.com/yun.khngn/", "_blank")}
+                    onClick={() => window.open(dc.submit.returnButtonUrl, "_blank")}
                     className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm"
                 >
                     <ExternalLink className="w-4 h-4 mr-2" />
-                    Direct của tớ
+                    {dc.submit.returnButtonText}
                 </Button>
                 <Button 
                     variant="outline" 
-                    onClick={() => window.open("https://open.spotify.com/playlist/your-playlist-id", "_blank")}
+                    onClick={() => window.open(dc.submit.playlistButtonUrl, "_blank")}
                     className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm"
                 >
                     <Music className="w-4 h-4 mr-2" />
-                    Playlist chữa lành
+                    {dc.submit.playlistButtonText}
                 </Button>
             </div>
         </div>

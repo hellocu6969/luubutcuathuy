@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import dc from "@/lib/DataConfig";
-import { ExternalLink, BookOpen } from "lucide-react";
+import { ExternalLink, BookOpen, Github } from "lucide-react";
 import React from "react";
 
 const HeadCard = () => {
@@ -19,18 +19,28 @@ const HeadCard = () => {
         <div className="absolute bottom-10 left-0 right-0 max-w-3xl mx-auto px-4 text-center">
             <p className="text-white/60 font-medium tracking-[0.2em] mb-4 uppercase text-sm">Lưu bút online</p>
             <h1 className="text-5xl md:text-7xl font-serif text-white font-medium mb-6 leading-tight">
-              {dc.headCard.title}
+              {dc.headCard.title} {dc.myself}
             </h1>
         </div>
       </div>
       
       <div className="max-w-xl mx-auto space-y-8 px-4 text-center">
-        <div 
-          onClick={() => window.open("https://www.facebook.com/yun.khngn/", "_blank")}
-          className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer border-b border-border pb-1"
-        >
-          <ExternalLink className="w-3.5 h-3.5" />
-          <span className="text-sm tracking-wide">Created by {dc.myself}</span>
+        <div className="flex items-center justify-center gap-6">
+          <div 
+            onClick={() => window.open("https://www.facebook.com/yun.khngn/", "_blank")}
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer border-b border-border pb-1"
+          >
+            <ExternalLink className="w-3.5 h-3.5" />
+            <span className="text-sm tracking-wide">Created by @yun.khngn</span>
+          </div>
+
+          <div 
+            onClick={() => window.open("https://github.com/yunkhngn/online-guestbook", "_blank")}
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer border-b border-border pb-1"
+          >
+            <Github className="w-3.5 h-3.5" />
+            <span className="text-sm tracking-wide">Open Source</span>
+          </div>
         </div>
 
         <div className="space-y-6 text-lg text-muted-foreground leading-relaxed font-light">

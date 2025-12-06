@@ -5,15 +5,29 @@ import { cn } from "@/lib/utils";
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-serif" });
 
+import dc from "@/lib/DataConfig";
+
 export const metadata = {
-  title: "Lưu bút - Khoa Nguyễn",
-  description: "A digital guestbook by Khoa Nguyễn",
-  icons: {
-    icon: "/favicon/favicon.ico",
-    shortcut: "/favicon/favicon-16x16.png",
-    apple: "/favicon/apple-icon.png",
+  title: dc.meta.title,
+  description: dc.meta.description,
+  keywords: dc.meta.keywords,
+  openGraph: {
+    title: dc.meta.title,
+    description: dc.meta.description,
+    images: [
+      {
+        url: dc.meta.img,
+        width: 1200,
+        height: 630,
+        alt: dc.meta.title,
+      },
+    ],
+    type: "website",
   },
-  manifest: "/favicon/manifest.json",
+  icons: {
+    icon: dc.meta.favicon,
+    shortcut: dc.meta.favicon, // Simplified for now, user can change if mapped
+  },
 };
 
 import { GuestbookProvider } from "@/components/context/GuestbookContext";
