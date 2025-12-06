@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
+import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { useGuestbook } from "@/components/context/GuestbookContext";
 import RichEditor from "@/components/ui/RichEditor";
@@ -99,17 +100,47 @@ export default function WritePage() {
                 setAvailable={setAvailable} 
                 available={available} 
                 customRender={({ handleSubmit, isSubmitting, testMode, setTestMode }) => (
-                    <div className="flex flex-col items-center gap-4">
+                    <div className="flex flex-col items-center gap-6">
                         {process.env.NODE_ENV === "development" && (
-                            <label className="flex items-center gap-2 cursor-pointer p-2 border border-dashed border-muted-foreground/50 rounded-md bg-muted/20">
-                                <input 
-                                    type="checkbox" 
-                                    checked={testMode} 
-                                    onChange={(e) => setTestMode(e.target.checked)}
-                                    className="w-4 h-4 accent-primary"
-                                />
-                                <span className="text-sm font-mono text-muted-foreground">Test Mode (No Email)</span>
-                            </label>
+                            <div className="flex flex-col items-center gap-3 p-4 border border-dashed border-yellow-500/50 rounded-lg bg-yellow-500/5 w-full max-w-xs">
+                                <span className="text-xs font-bold text-yellow-600 uppercase tracking-widest">Dev Tools</span>
+                                <label className="flex items-center gap-2 cursor-pointer w-full justify-center">
+                                    <input 
+                                        type="checkbox" 
+                                        checked={testMode} 
+                                        onChange={(e) => setTestMode(e.target.checked)}
+                                        className="w-4 h-4 accent-yellow-500"
+                                    />
+                                    <span className="text-sm font-mono text-muted-foreground">Test Mode (No Email)</span>
+                                </label>
+                                
+                                <AlertDialog>
+                                  <AlertDialogTrigger asChild>
+                                    <Button 
+                                        variant="outline" 
+                                        size="sm" 
+                                        className="w-full text-red-500 hover:text-red-600 hover:bg-red-50"
+                                    >
+                                        <RefreshCcw className="w-3 h-3 mr-2" />
+                                        Reset Local Data
+                                    </Button>
+                                  </AlertDialogTrigger>
+                                  <AlertDialogContent>
+                                    <AlertDialogHeader>
+                                      <AlertDialogTitle>Xóa dữ liệu?</AlertDialogTitle>
+                                      <AlertDialogDescription>
+                                        Hành động này sẽ xóa toàn bộ nội dung cậu đang viết. Không thể hoàn tác được đâu nha.
+                                      </AlertDialogDescription>
+                                    </AlertDialogHeader>
+                                    <AlertDialogFooter>
+                                      <AlertDialogCancel>Hủy</AlertDialogCancel>
+                                      <AlertDialogAction onClick={handleResetData} className="bg-red-500 text-white hover:bg-red-600">
+                                        Xóa luôn
+                                      </AlertDialogAction>
+                                    </AlertDialogFooter>
+                                  </AlertDialogContent>
+                                </AlertDialog>
+                            </div>
                         )}
                         
                         <Button 

@@ -1,49 +1,48 @@
 import React from "react";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Music } from "lucide-react";
+import dc from "@/lib/DataConfig";
 
 const Thanks = ({ show, data, available }) => {
   if (show || available) return null;
 
   return (
-    <div className="thanks-container w-full mb-8 animate-accordion-down">
-      <Card className="bg-card text-card-foreground border-border overflow-hidden shadow-sm">
-        <CardContent className="pt-6 pb-6 border-b border-border">
-          <p className="text-lg italic text-center">
-            Cảm ơn {data.name} đã gửi thư cho tớ
-          </p>
-        </CardContent>
-        <div className="relative w-full h-64 overflow-hidden">
-          <img
-            src="https://www.macmillandictionary.com/external/slideshow/thumb/Grey_thumb.png"
-            alt="Tớ ngồi code sml"
-            className="w-full h-full object-cover transition-transform duration-500"
-          />
+    <div className="thanks-container w-full mb-12 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+      <div className="relative w-full h-[60vh] mb-8 group overflow-hidden">
+        <img
+          src={dc.submit.image}
+          alt="Thanks background"
+          className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 filter brightness-50"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-90"></div>
+        <div className="absolute bottom-0 left-0 right-0 top-0 flex flex-col items-center justify-center p-4 text-center">
+            <p className="text-white/80 font-medium tracking-[0.2em] mb-4 uppercase text-sm animate-in slide-in-from-bottom-2 duration-1000 delay-300">
+                Lưu bút online
+            </p>
+            <h1 className="text-4xl md:text-6xl font-serif text-white font-medium mb-8 leading-tight drop-shadow-lg animate-in slide-in-from-bottom-4 duration-1000 delay-500 max-w-4xl">
+              Cảm ơn {data.name || "bạn"} đã gửi thư cho tớ
+            </h1>
+            
+            <div className="flex gap-4 animate-in slide-in-from-bottom-6 duration-1000 delay-700">
+                <Button 
+                    variant="outline" 
+                    onClick={() => window.open("https://www.facebook.com/yun.khngn/", "_blank")}
+                    className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm"
+                >
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Direct của tớ
+                </Button>
+                <Button 
+                    variant="outline" 
+                    onClick={() => window.open("https://open.spotify.com/playlist/your-playlist-id", "_blank")}
+                    className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm"
+                >
+                    <Music className="w-4 h-4 mr-2" />
+                    Playlist chữa lành
+                </Button>
+            </div>
         </div>
-        <CardFooter className="flex gap-3 pt-4 justify-center">
-          <Button 
-            variant="outline" 
-            onClick={() => window.open("link cua cau", "_blank")}
-            className="hover:bg-accent"
-          >
-            <ExternalLink className="w-4 h-4 mr-2" />
-            Direct của tớ
-          </Button>
-          <Button 
-            variant="outline" 
-            onClick={() => window.open("cai gi do", "_blank")}
-            className="hover:bg-accent"
-          >
-            <Music className="w-4 h-4 mr-2" />
-            Playlist của tớ nè
-          </Button>
-        </CardFooter>
-      </Card>
+      </div>
     </div>
   );
 };

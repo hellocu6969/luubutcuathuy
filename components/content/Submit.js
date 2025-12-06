@@ -27,8 +27,7 @@ const Submit = ({
   const [testMode, setTestMode] = useState(false);
   const router = useRouter();
 
-  const handleSubmit = () => {
-    // Validation logic tailored for the new form
+
   const handleSubmit = () => {
     // Validation logic tailored for the new form
     if (!data.title || data.title.length < 2) {

@@ -1,93 +1,110 @@
-# Online Guestbook (Next.js Migration)
+# Online Guestbook (Lưu bút Online)
 
-This project is a modern, responsive online guestbook application migrated from Create React App to Next.js 16 (App Router). It features a stunning "Liquid Glass" theme, secure server-side email submission, and a fully componentized UI using Tailwind CSS and shadcn/ui.
+Đây là phiên bản Lưu bút Online hiện đại, được viết lại bằng **Next.js 16 (App Router)**. Giao diện thiết kế theo phong cách "Liquid Glass" sang trọng, hỗ trợ Dark Mode và gửi email bảo mật qua Server Actions.
 
-## Features
+---
 
-- **Next.js 16 App Router**: Leveraging the latest Next.js features for performance and SEO.
-- **Liquid Glass Theme**: A premium, frosted glass aesthetic with dynamic gradients and motion.
-- **Dark/Light Mode**: Fully supported theming with persistent user preference.
-- **Secure Email Submission**: EmailJS logic moved to Server Actions to protect API keys.
-- **Responsive Design**: Optimized for all device sizes.
-- **No External UI Libraries**: Replaced Material UI with Tailwind CSS and shadcn/ui (Radix UI + Tailwind).
+## 🛠️ Hướng dẫn cài đặt & Chạy (Local)
 
-## Tech Stack
+Trước tiên, hãy đảm bảo máy bạn đã cài **Node.js** (v20 trở lên) và **git**.
 
-- **Framework**: Next.js 16
-- **Language**: JavaScript
-- **Styling**: Tailwind CSS, CSS Modules (for global styles)
-- **UI Components**: shadcn/ui (Radix UI primitives)
-- **Icons**: Lucide React
-- **Email Service**: EmailJS (via Server Actions)
+1.  **Clone source code:**
+    ```bash
+    git clone <repository-url>
+    cd online-guestbook
+    ```
 
-## Getting Started
+2.  **Cài đặt thư viện:**
+    ```bash
+    npm install
+    # hoặc
+    yarn install
+    ```
 
-### Prerequisites
+3.  **Chạy server development:**
+    ```bash
+    npm run dev
+    # hoặc
+    yarn dev
+    ```
+    Truy cập [http://localhost:3000](http://localhost:3000) để xem web.
 
-- Node.js v20 or higher
-- npm
+---
 
-### Installation
+## ⚙️ Config Data (Nội dung)
 
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   cd online-guestbook
-   ```
+Mọi nội dung hiển thị trên web (tên, lời chào, ảnh nền...) đều được cấu hình tập trung tại file `lib/DataConfig.js`.
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+Bạn mở file này ra và sửa các thông tin sau:
 
-3. Configure Environment Variables:
-   Copy `.env.example` to `.env` and fill in your EmailJS credentials:
-   ```bash
-   cp .env.example .env
-   ```
-   
-   Required variables:
-   - `EMAILJS_SERVICE_ID`
-   - `EMAILJS_TEMPLATE_ID`
-   - `EMAILJS_PUBLIC_KEY`
-   - `EMAILJS_PRIVATE_KEY` (Optional, for added security)
+-   `myself`: Tên xưng hô của bạn (Ví dụ: "Tớ", "Mìn").
+-   `email`: Email hiển thị (nếu có).
+-   `headCard`: Cấu hình phần Hero (Trang chủ & Trang cảm ơn).
+    -   `title`: Tiêu đề lớn.
+    -   `subheader`: Dòng chữ nhỏ bên dưới.
+    -   `image`: Link ảnh nền (nên dùng ảnh ngang, chất lượng cao).
+    -   `content`, `content2`: Lời ngỏ đầu trang.
+-   `writePage`: Cấu hình trang viết thư.
+    -   `titlePlaceholder`: Gợi ý nội dung tiêu đề.
+    -   `namePlaceholder`, `rolePlaceholder`: Gợi ý tên và danh xưng.
+-   `submit`: Cấu hình popup/trang sau khi gửi.
+    -   `image`: Ảnh nền trang cảm ơn.
 
-### Development
+**Lưu ý:** Phần credit `@yunkhngn` ở cuối trang đã được hardcode để giữ bản quyền tác giả gốc.
 
-Run the development server:
+---
 
-```bash
-npm run dev
-```
+## 🔑 Config Env (EmailJS)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Để tính năng gửi thư hoạt động, bạn cần cấu hình **EmailJS**.
 
-### Build
+1.  Đăng ký tài khoản tại [EmailJS.com](https://www.emailjs.com/).
+2.  Tạo một **Email Service** (kết nối với Gmail của bạn).
+3.  Tạo một **Email Template**.
+    -   Mở file `email-template-COPY-THIS-TO-EMAILJS.html` trong dự án này.
+    -   Copy toàn bộ code HTML đó.
+    -   Paste vào phần "Source code" trong editor của EmailJS Template.
+    -   Lưu lại (**Save**).
+4.  Lấy các Key sau trong EmailJS:
+    -   **Service ID**: Trong tab Email Services.
+    -   **Template ID**: Trong tab Email Templates.
+    -   **Public Key**: Trong Account > General.
+    -   **Private Key**: Trong Account > Security (Tùy chọn, để bảo mật hơn).
 
-Build the application for production:
+5.  Về lại dự án, tạo file `.env` (từ file `.env.example`):
+    ```ini
+    EMAILJS_SERVICE_ID=service_xxxxxx
+    EMAILJS_TEMPLATE_ID=template_xxxxxx
+    EMAILJS_PUBLIC_KEY=user_xxxxxx
+    EMAILJS_PRIVATE_KEY=your_private_key
+    ```
+    *Thay `xxxxxx` bằng mã thật của bạn.*
 
-```bash
-npm run build
-```
+---
 
-Start the production server:
+## 🚀 Deploy Vercel (Miễn phí)
 
-```bash
-npm start
-```
+Cách dễ nhất để đưa web lên mạng là dùng Vercel.
 
-## Project Structure
+1.  Đẩy code của bạn lên **GitHub** (hoặc GitLab/Bitbucket).
+2.  Truy cập [Vercel.com](https://vercel.com/) và đăng nhập.
+3.  Chọn **"Add New..."** -> **"Project"**.
+4.  Chọn repo GitHub bạn vừa push code lên.
+5.  Tại mục **Environment Variables**, điền 4 key EmailJS bạn đã lấy ở bước trên:
+    -   `EMAILJS_SERVICE_ID`
+    -   `EMAILJS_TEMPLATE_ID`
+    -   `EMAILJS_PUBLIC_KEY`
+    -   `EMAILJS_PRIVATE_KEY`
+6.  Ấn **Deploy**. Chờ khoảng 1-2 phút là xong!
 
-- `app/`: Next.js App Router pages and layouts.
-- `components/`: React components (UI and feature-specific).
-  - `ui/`: Reusable shadcn/ui components.
-  - `content/`: Guestbook feature components.
-  - `Header/`: Global header component.
-- `lib/`: Utility functions and configuration.
-- `hooks/`: Custom React hooks.
-- `public/`: Static assets.
-- `styles/`: Global styles (though mostly handled by Tailwind).
+---
 
-## Theme System
+## 🛠️ Tính năng Developer Tools (Review)
 
-See [README_THEME.md](./README_THEME.md) for detailed documentation on the Liquid Glass design system.
+Khi chạy ở chế độ dev (`yarn dev`), trang Viết thư (`/write`) và Xem thư (`/letter`) sẽ có thêm hộp công cụ **Dev Zone**:
+
+-   **Test Mode**: Gửi thư giả lập (không thực sự gửi email) để test giao diện.
+-   **Reset Local Data**: Xóa sạch dữ liệu nháp trong máy để test lại flow từ đầu "như mới".
+
+---
+*Created by @yunkhngn*
