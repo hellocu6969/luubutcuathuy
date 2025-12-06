@@ -9,97 +9,130 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #09090b;
+            background-color: #000000;
             font-family: 'Inter', sans-serif;
             color: #ffffff;
-            line-height: 1.6;
+        }
+        .wrapper {
+            width: 100%;
+            table-layout: fixed;
+            background-color: #000000;
+            padding-bottom: 40px;
         }
         .container {
             max-width: 600px;
             margin: 0 auto;
-            padding: 40px 20px;
             background-color: #09090b;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            overflow: hidden;
         }
-        .header {
+        .header-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #18181b 0%, #27272a 100%);
+        }
+        .content-box {
+            padding: 40px;
             text-align: center;
-            margin-bottom: 40px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 20px;
         }
-        .site-name {
-            font-size: 12px;
+        .meta-date {
+            font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #a1a1aa;
-            margin-bottom: 10px;
+            color: #71717a;
+            margin-bottom: 30px;
+            display: inline-block;
+            border-bottom: 1px solid #27272a;
+            padding-bottom: 5px;
         }
         .post-title {
             font-family: 'Playfair Display', serif;
-            font-size: 36px;
+            font-size: 32px;
             font-weight: 700;
-            margin: 0 0 10px 0;
+            margin: 0 0 15px 0;
             color: #ffffff;
-            line-height: 1.2;
+            line-height: 1.3;
         }
         .author-info {
-            text-align: center;
             margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
         }
         .author-name {
-            font-weight: 500;
-            font-size: 16px;
-            color: #ffffff;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 18px;
+            color: #a1a1aa;
         }
         .author-role {
-            font-size: 14px;
-            color: #a1a1aa;
-        }
-        .content {
-            font-family: 'Inter', sans-serif;
-            font-size: 16px;
+            font-size: 12px;
+            background: rgba(255,255,255,0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
             color: #e4e4e7;
-            margin-bottom: 40px;
+            display: inline-block;
+            margin-top: 5px;
         }
-        .content p {
-            margin-bottom: 16px;
+        .message-body {
+            text-align: left;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #d4d4d8;
+            background: rgba(255,255,255,0.03);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
         }
-        .content blockquote {
-            border-left: 3px solid #ffffff;
-            padding-left: 20px;
-            margin-left: 0;
-            font-style: italic;
-            color: #a1a1aa;
+        .message-body p {
+            margin-top: 0;
         }
         .footer {
-            text-align: center;
             font-size: 12px;
             color: #52525b;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid #27272a;
             padding-top: 20px;
+            margin-top: 20px;
+        }
+        /* Mobile responsive */
+        @media only screen and (max-width: 600px) {
+            .container { width: 100% !important; border: none; border-radius: 0; }
+            .content-box { padding: 20px; }
+            .post-title { font-size: 28px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="site-name">Online Guestbook</div>
-            <div style="font-size: 12px; color: #71717a;">{{date_day}}/{{date_month}}/{{date_year}}</div>
-        </div>
+    <div class="wrapper">
+        <div style="height: 40px;"></div>
+        <div class="container">
+            <!-- Decorative Header Block -->
+            <div style="background: #18181b; padding: 20px; text-align: center; border-bottom: 1px solid #27272a;">
+                <span style="font-family: 'Playfair Display', serif; color: #fff; letter-spacing: 1px;">Lưu Bút Online</span>
+            </div>
 
-        <h1 class="post-title">{{title}}</h1>
-        
-        <div class="author-info">
-            <div class="author-name">{{name}}</div>
-            <div class="author-role">{{role}}</div>
-        </div>
+            <div class="content-box">
+                <div class="meta-date">{{date_day}} THÁNG {{date_month}}, {{date_year}}</div>
 
-        <div class="content">
-            {{{message}}}
-        </div>
+                <h1 class="post-title">{{title}}</h1>
 
-        <div class="footer">
-            <p>Sent via Online Guestbook</p>
-            <p>© {{date_year}} @yunkhngn</p>
+                <div class="author-info">
+                    <div class="author-name">Gửi bởi: {{name}}</div>
+                    <div class="author-role">{{role}}</div>
+                </div>
+
+                <div class="message-body">
+                    {{{message}}}
+                </div>
+
+                <div class="footer">
+                    <p>Được gửi từ hệ thống Guestbook Online</p>
+                    <p>© {{date_year}} @yunkhngn</p>
+                </div>
+            </div>
         </div>
     </div>
 </body>

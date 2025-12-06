@@ -1,16 +1,16 @@
 # Online Guestbook (Lưu bút Online)
 
-Đây là phiên bản Lưu bút Online hiện đại, được viết lại bằng **Next.js 16 (App Router)**. Giao diện thiết kế theo phong cách "Liquid Glass" sang trọng, hỗ trợ Dark Mode và gửi email bảo mật qua Server Actions.
+Đây là phiên bản Lưu bút Online hiện đại, được viết lại bằng **Next.js 16 (App Router)**. Giao diện thiết kế theo phong cách "Liquid Glass", hỗ trợ Dark Mode và gửi email bảo mật qua Emailjs.
 
 ---
 
-## 🛠️ Hướng dẫn cài đặt & Chạy (Local)
+##  Hướng dẫn cài đặt & Chạy (Local)
 
 Trước tiên, hãy đảm bảo máy bạn đã cài **Node.js** (v20 trở lên) và **git**.
 
 1.  **Clone source code:**
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/yunkhngn/online-guestbook.git
     cd online-guestbook
     ```
 
@@ -54,7 +54,7 @@ Bạn mở file này ra và sửa các thông tin sau:
 
 ---
 
-## 🔑 Config Env (EmailJS)
+## Config Env (EmailJS)
 
 Để tính năng gửi thư hoạt động, bạn cần cấu hình **EmailJS**.
 
@@ -82,7 +82,7 @@ Bạn mở file này ra và sửa các thông tin sau:
 
 ---
 
-## 🚀 Deploy Vercel (Miễn phí)
+## Deploy Vercel (Miễn phí)
 
 Cách dễ nhất để đưa web lên mạng là dùng Vercel.
 
@@ -99,7 +99,7 @@ Cách dễ nhất để đưa web lên mạng là dùng Vercel.
 
 ---
 
-## 🛠️ Tính năng Developer Tools (Review)
+## Tính năng Developer Tools (Review)
 
 Khi chạy ở chế độ dev (`yarn dev`), trang Viết thư (`/write`) và Xem thư (`/letter`) sẽ có thêm hộp công cụ **Dev Zone**:
 
