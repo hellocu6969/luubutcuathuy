@@ -89,9 +89,11 @@ export default function BackgroundMusic() {
         ref={audioRef}
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
+        preload="auto"
       >
-        {/* Thêm file nhạc vào đây */}
-        <source src="/music/background.webm" type="audio/webm" />
+        {/* Thêm file nhạc MP3 vào public/music folder */}
+        <source src="/music/background.mp3" type="audio/mpeg" />
+        Trình duyệt của bạn không hỗ trợ phát audio.
       </audio>
 
       {/* Music control button */}

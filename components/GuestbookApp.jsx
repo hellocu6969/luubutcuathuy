@@ -119,7 +119,7 @@ function GuestbookApp() {
           available && <WarnBeforeUnload />}
 
         <div className="text-center text-sm text-muted-foreground pt-8 pb-4">
-          <p>© {new Date().getFullYear()} {dc.myself}. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Hải Namm. All rights reserved.</p>
         </div>
       </div>
     </div>
