@@ -20,7 +20,7 @@ const Thanks = ({ show, data, available }) => {
                 Lưu bút online
             </p>
             <h1 className="text-4xl md:text-6xl font-serif text-white font-medium mb-8 leading-tight drop-shadow-lg animate-in slide-in-from-bottom-4 duration-1000 delay-500 max-w-4xl">
-              Cảm ơn {data.name || "bạn"} vì đã là một phần thanh xuân của tớ 💗
+              Cảm ơn các cậu vì đã là một phần thanh xuân của tớ <br /> Tuy không còn đồng hành cùng nhau vào những ngày nắng nhưng nhất định sẽ trùng phùng
             </h1>
             
             <div className="flex gap-4 animate-in slide-in-from-bottom-6 duration-1000 delay-700">

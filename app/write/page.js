@@ -79,7 +79,7 @@ export default function WritePage() {
         <div className="flex flex-col items-center justify-center gap-4">
             <div className="w-16 h-16 rounded-full bg-muted overflow-hidden ring-2 ring-border relative group">
                  {/* Placeholder Avatar */}
-                 <img src="https://www.image2url.com/r2/default/images/1779463212936-71464564-22ec-4b63-8931-575f67091d7f.jpg" alt="Avatar" className="w-full h-full object-cover opacity-80" />
+                 <img src="https://www.image2url.com/r2/default/images/1779470294218-fdc1da60-82a5-4ff5-8527-a46df0da9d0f.jpg" alt="Avatar" className="w-full h-full object-cover opacity-80" />
             </div>
             
             <div className="text-center space-y-1">
