@@ -100,7 +100,7 @@ export default function LetterPage() {
         </div>
 
         <div className="text-center text-sm text-muted-foreground pt-8 pb-4 opacity-50 hover:opacity-100 transition-opacity">
-          <p>© {new Date().getFullYear()} @yunkhngn. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} @Hai Namm. All rights reserved.</p>
         </div>
       </div>
     </div>
