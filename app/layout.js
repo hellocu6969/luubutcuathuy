@@ -30,9 +30,8 @@ export const metadata = {
   },
 };
 
-import { GuestbookProvider } from "@/components/context/GuestbookContext";
+import ClientProviders from "@/components/ClientProviders";
 import FloatingNav from "@/components/FloatingNav";
-import { Toaster } from "sonner";
 
 export default function RootLayout({ children }) {
   return (
@@ -57,11 +56,10 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={cn("min-h-screen bg-background font-sans antialiased text-foreground selection:bg-primary/20 selection:text-primary-foreground", inter.variable, playfair.variable)}>
-        <GuestbookProvider>
+        <ClientProviders>
           {children}
-          <FloatingNav />
-          <Toaster position="top-center" richColors />
-        </GuestbookProvider>
+        </ClientProviders>
+        <FloatingNav />
       </body>
     </html>
   );
